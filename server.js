@@ -14,6 +14,10 @@ const channels = {
 const port = process.env.PORT || 4001;
 
 const app = express();
+app.use(express.static(path.resolve(__dirname, "build")));
+app.get("/", function(req, res) {
+  res.sendFile(path.resolve(__dirname, "build", "index.html"));
+});
 
 // our server instance
 const server = http.createServer(app);
