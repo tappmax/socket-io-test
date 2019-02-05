@@ -8,16 +8,18 @@ const channels = {
   userEntered: "userEntered",
   userLeft: "userLeft",
   userTyping: "userTypeing",
-  img: "img"
+  img: "img",
+  test: "test",
+  testFromServer: "test-from-server"
 };
 
 // our localhost port
 const port = process.env.PORT || 4001;
 
 const app = express();
-app.use(express.static(path.resolve(__dirname, "build")));
+app.use(express.static(path.resolve(__dirname, "client/build")));
 app.get("/", function(req, res) {
-  res.sendFile(path.resolve(__dirname, "build", "index.html"));
+  res.sendFile(path.resolve(__dirname, "client/build", "index.html"));
 });
 
 // our server instance
@@ -35,6 +37,11 @@ io.on("connection", socket => { // must be connected first
     console.log("new msg: ", msg);
     io.sockets.emit(channels.chat, msg);
   });
+
+  socket.on(channels.test, msg => {
+    console.log("unit test msg:", msg)
+    io.sockets.emit(channels.testFromServer, msg);
+  })
 
   // disconnect is fired when a client leaves the server
   socket.on("disconnect", () => {

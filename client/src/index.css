@@ -23,8 +23,7 @@ body {
   border-radius: 8px;
   padding: 8px;
   align-items:flex-end;
-  height:500px;
-  max-height:890px;
+  min-height:890px;
   overflow-y:auto;
   margin: 0 auto;
   width: 640px;    

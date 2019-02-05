@@ -1,0 +1,15 @@
+{
+  "name": "socketio-basic",
+  "version": "1.0.0",
+  "description": "socket basic",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Max Tapp",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "socket.io": "^2.2.0"
+  }
+}
