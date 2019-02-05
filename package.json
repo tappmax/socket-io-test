@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "poststart":"cd socket-client && npm run start",
     "client:start": "cd socket-client && npm run start",
     "test": "npx mocha tests/*"
   },
