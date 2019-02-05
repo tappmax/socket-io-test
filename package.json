@@ -1,10 +1,10 @@
 {
   "name": "socketio-demo",
   "version": "1.0.0",
-  "description": "",
+  "description": "socket demo",
   "main": "server.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node server.js",
     "client:start": "cd socket-client && npm run start",
     "test": "npx mocha tests/*"
   },
