@@ -7,7 +7,6 @@
     "start": "node index.js"
   },
   "author": "Max Tapp",
-  "license": "MIT",
   "dependencies": {
     "express": "^4.16.4",
     "socket.io": "^2.2.0"

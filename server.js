@@ -10,6 +10,7 @@ const channels = {
   userTyping: "userTypeing",
   img: "img",
   test: "test",
+  unitTest: "unit-test",
   testFromServer: "test-from-server"
 };
 
@@ -38,7 +39,7 @@ io.on("connection", socket => { // must be connected first
     io.sockets.emit(channels.chat, msg);
   });
 
-  socket.on(channels.test, msg => {
+  socket.on(channels.unitTest, msg => {
     console.log("unit test msg:", msg)
     io.sockets.emit(channels.testFromServer, msg);
   })
