@@ -4,7 +4,7 @@ const socketIO = require("socket.io");
 const path = require("path");
 
 const channels = {
-  chat: "chat",
+  chat: "chatttttttt",
   userEntered: "userEntered",
   userLeft: "userLeft",
   userTyping: "userTypeing",

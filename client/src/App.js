@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import socketIOClient from "socket.io-client";
 
+//#region channels
 const channels = {
   connect: "connect",
   disconnect: "disconnect",
@@ -11,6 +12,7 @@ const channels = {
   userTyping: "userTypeing",
   img: "img"
 };
+//#endregion
 
 const socket = socketIOClient("http://localhost:4001");
 
