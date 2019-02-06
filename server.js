@@ -3,17 +3,7 @@ const http = require("http");
 const socketIO = require("socket.io");
 const path = require("path");
 
-const channels = {
-  chat: "chatttttttt",
-  userEntered: "userEntered",
-  userLeft: "userLeft",
-  userTyping: "userTypeing",
-  img: "img",
-  test: "test",
-  unitTest: "unit-test",
-  testFromServer: "test-from-server"
-};
-
+//#region express stuff
 // our localhost port
 const port = process.env.PORT || 4001;
 
@@ -25,6 +15,22 @@ app.get("/", function(req, res) {
 
 // our server instance
 const server = http.createServer(app);
+//#endregion
+
+
+//#region socket.io stuff
+
+// Hard code some events/'channels' that we'll communicate on in our app
+const channels = {
+  chat: "chat",
+  userEntered: "userEntered",
+  userLeft: "userLeft",
+  userTyping: "userTypeing",
+  img: "img",
+  test: "test",
+  unitTest: "unit-test",
+  testFromServer: "test-from-server"
+};
 
 // This creates our socket using the instance of the server
 const io = socketIO(server);
@@ -39,8 +45,8 @@ io.on("connection", socket => { // must be connected first
     io.sockets.emit(channels.chat, msg);
   });
 
-  socket.on(channels.unitTest, msg => {
-    console.log("unit test msg:", msg)
+  socket.on(channels.test, msg => {
+    console.log("unit unitTest msg:", msg)
     io.sockets.emit(channels.testFromServer, msg);
   })
 
@@ -49,5 +55,6 @@ io.on("connection", socket => { // must be connected first
     console.log("user disconnected");
   });
 });
+//#endregion
 
 server.listen(port, () => console.log(`Listening on port ${port}`));
